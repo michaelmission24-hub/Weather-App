@@ -59,13 +59,13 @@ function updateDisplay(data) {
 function updateBackground(condition) {
     
     const colors = {
-        'Clear': ['#FFD700', '#FF8C00'],
-        'Sunny': ['#FFD700', '#FF8C00'],
-        'Cloudy': ['#7F7FD5', '#86A8E7'],
-        'Overcast': ['#7F7FD5', '#86A8E7'],
-        'Rain': ['#005C97', '#363795'],
-        'Light rain': ['#005C97', '#363795'],
-        'default': ['#606C88', '#3F4C6B']
+    'Clear': ['#4facfe', '#00f2fe'],      
+    'Sunny': ['#f6d365', '#fda085'],      
+    'Cloudy': ['#bdc3c7', '#2c3e50'],     
+    'Overcast': ['#3e5151', '#decba4'],   
+    'Rain': ['#4b6cb7', '#182848'],       
+    'Light rain': ['#7028e4', '#e5b2ca'], 
+    'default': ['#243B55', '#141E30'],
     };
 
     const grad = colors[condition] || colors['default'];
