@@ -32,7 +32,7 @@ function fetchWeather(city) {
 function updateDisplay(data) {
     const { name, localtime_epoch } = data.location;
     const { text } = data.current.condition;
-    const { temp_c, humidity, wind_kph, wind_dir } = data.current;
+    const { temp_c, humidity, wind_kph, wind_dir,wind_degree } = data.current;
 
     $('#city').text(name);
     $('#description').text(text);
@@ -41,6 +41,10 @@ function updateDisplay(data) {
     $('#wind_val').text(wind_kph + " kmh");
     $('#wind_dir').text(wind_dir);
 
+    if (wind_degree !== undefined) {
+        const rotation = wind_degree - 45; 
+        $('#wind-arrow').css('transform', `rotate(${rotation}deg)`);
+    };
 
     
     const iconClass = weatherIcons[text] || 'fa-cloud';
