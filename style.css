@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Google sans', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+
+}
+#weather-effect{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    z-index: -1;
+    pointer-events: none;
+}
+.weather-particle{
+    position: absolute;
+    opacity: 0.5;
+    animation: float 5s infinite linear;
+}
+@keyframes float{
+    0%{transform: translateY(0) rotate(0deg);}
+    50%{transform: translateY(-20px) rotate(180deg);}
+    100%{transform: translateY(0) rotate(360deg);}
+}
+.weather-app{
+    width: 95%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur (12px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1)
+}
+.search{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+
+}
+#city-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1) ;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    
+}
+#city-input::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
+#city-input:focus{
+    outline: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+#search-btn{
+    padding: 15px 25px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #ff6b6b,#ff5252);
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+#search-btn::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        12deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: all 0.5s;
+}
+#search-btn:hover::after{
+    left: 100%;
+}
+.content{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0, 0, 0, 0);
+    border: 0;
+}
+.error{
+    color: #ff6b6b;
+    margin-top: 20px ;
+    text-align: center;
+    display: none;
+    font-weight: 500;
+}
+.weather{
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+#city {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+#date-time{
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+.weather-icon{
+    font-size: 120px;
+    margin: 20px 0;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    animation: iconFloat 3s ease-in-out infinite;
+}
+@keyframes iconFloat{
+    0% , 100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+}
+
+#temp_c{
+    font-size: 4em;
+    font-weight: 600;
+    margin: 20px 0 ;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: inline-block;
+
+}
+#description{
+    font-size: 1.3em;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+.extra-info{
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+.info-card{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.info-card:hover{
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.info-card i {
+    font-size: 28px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+#wind-arrow {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ff6b6b; 
+    display: inline-block;
+    transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (min-width:300px) {
+    .weather-app{
+        padding: 25px;
+    }
+    #temp_c{
+        font-size: 3em;
+    }
+    .weather-icon {
+        font-size: 100px;
+    }
+    
+}
